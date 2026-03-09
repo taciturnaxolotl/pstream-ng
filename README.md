@@ -1,61 +1,38 @@
-# P-Stream
+# pstream-ng
 
-[![P-Stream Image](.github/P-Stream.png)](https://p-stream.github.io/docs/)
+A fork of [P-Stream](https://github.com/p-stream/p-stream), a media streaming frontend that was [shut down under pressure from ACE/MPA](https://torrentfreak.com/pirate-streaming-portal-p-stream-shuts-down-following-ace-mpa-pressure/). This fork preserves the open-source codebase with merged community contributions and dependency updates.
 
-## Quick Deploy
+> [!WARNING]
+> **This software does not host, index, or distribute any copyrighted content.** It is a frontend application that interacts with user-configured backends. How it is used is entirely the responsibility of the end user.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fp-stream%2Fp-stream)
-
-[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/p-stream/p-stream)
-
-**NOTE: To self-host, more setup is required. Check the [docs](https://p-stream.github.io/docs/) to properly set up!!!!**
-
-## Links And Resources
-
-| Service       | Link                                            | Source Code                                             |
-| ------------- | ----------------------------------------------- | ------------------------------------------------------- |
-| P-Stream Docs | [docs](https://p-stream.github.io/docs/)                | [source code](https://github.com/p-stream/docs)         |
-| Extension     | [extension](https://p-stream.github.io/docs/extension) | [source code](https://github.com/p-stream/browser-ext)  |
-| Proxy         | [simple-proxy](https://p-stream.github.io/docs/proxy)  | [source code](https://github.com/p-stream/simple-proxy) |
-| Backend       | [backend](https://github.com/p-stream/backend)          | [source code](https://github.com/p-stream/backend)      |
-| Frontend      | [P-Stream](https://p-stream.github.io/docs/instances)  | [source code](https://github.com/p-stream/p-stream)     |
-| Weblate       | [weblate](https://p-stream.github.io/docs/weblate)          |                                                         |
-
-## Referrers
-
-- [FMHY (Voted as #1 streaming site of 2024, 2025)](https://fmhy.net)
+The canonical repo for this is hosted on tangled over at [`dunkirk.sh/pstream-ng`](https://tangled.org/dunkirk.sh/pstream-ng)
 
 ## Running Locally
 
-Type the following commands into your terminal / command line to run P-Stream locally
-
 ```bash
-git clone https://github.com/p-stream/p-stream.git
-cd smov
-git pull
+git clone git@knot.dunkirk.sh:dunkirk.sh/pstream-ng
+cd pstream-ng
 pnpm install
 pnpm run dev
 ```
 
-Then you can visit the local instance [here](http://localhost:5173) or, at local host on port 5173.
+Then visit [localhost:5173](http://localhost:5173).
 
-## Updating a P-Stream Instance
+## Upstream
 
-To update a P-Stream instance you can type the below commands into a terminal at the root of your project.
+To pull in updates from the original P-Stream repo:
 
 ```bash
-git remote add upstream https://github.com/p-stream/p-stream.git
-git fetch upstream # Grab the contents of the new remote source
-git checkout <YOUR_MAIN_BRANCH>  # Most likely this would be `origin/production`
+git fetch upstream
 git merge upstream/production
-# * Fix any conflicts present during merge *
-git add .  # Add all changes made during merge and conflict fixing
-git commit -m "Update p-stream instance (merge upstream/production)"
-git push  # Push to YOUR repository
 ```
 
-## Contact Me / Fluxer
+<p align="center">
+    <img src="https://raw.githubusercontent.com/taciturnaxolotl/carriage/main/.github/images/line-break.svg" />
+</p>
 
-[Fluxer](https://fluxer.gg/rEBQ3B8E)
-
-(Fluxer is an OSS Discord alternative platform)
+<p align="center">
+    <a href="https://github.com/p-stream/p-stream">
+        <img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=Fork+of&message=P-Stream&logoColor=d9e0ee&colorA=363a4f&colorB=b7bdf8"/>
+    </a>
+</p>
