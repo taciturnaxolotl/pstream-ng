@@ -67,10 +67,9 @@ export default defineConfig(({ mode }) => {
           "safari-pinned-tab.svg",
         ],
         manifest: {
-          name: "P-Stream",
-          short_name: "P-Stream",
-          description:
-            "Watch your favorite shows and movies for free with no ads ever! (っ'ヮ'c)",
+          name: "pstream-ng",
+          short_name: "pstream-ng",
+          description: "A streaming site fork",
           theme_color: "#000000",
           background_color: "#000000",
           display: "standalone",

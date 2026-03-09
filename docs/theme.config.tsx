@@ -11,7 +11,7 @@ import coverUrl from './public/cover.png';
 import faviconUrl from './public/favicon.ico';
 
 const starLinks = [
-  link('GitHub', 'https://github.com/p-stream/p-stream', {
+  link('GitHub', 'https://github.com/taciturnaxolotl/pstream-ng', {
     style: 'star',
     newTab: true,
     icon: 'akar-icons:github-fill',
@@ -24,7 +24,7 @@ const starLinks = [
 ];
 
 export default defineTheme({
-  github: 'p-stream/p-stream',
+  github: 'taciturnaxolotl/pstream-ng',
   navigation: [
     link('Discord', '/links/discord', {
       style: 'star',
@@ -38,29 +38,29 @@ export default defineTheme({
   ],
   contentFooter: {
     text: 'Made with :3 (sillyness)',
-    editRepositoryBase: 'https://github.com/p-stream/docs/blob/master',
+    editRepositoryBase: 'https://github.com/taciturnaxolotl/pstream-ng/blob/main/docs',
     socials: [
-      social.github('https://github.com/p-stream'),
+      social.github('https://github.com/taciturnaxolotl/pstream-ng'),
       social.discord('/links/discord'),
     ],
   },
   meta: (pageMeta) => (
     <NextSeo
       {...{
-        title: `${pageMeta.title ?? "Watch your favorite shows and movies for free with no ads ever! (っ'ヮ'c)"} | P-Stream`,
+        title: `${pageMeta.title ?? "Watch your favorite shows and movies for free with no ads ever! (っ'ヮ'c)"} | pstream-ng`,
         description:
           pageMeta.description ??
-          'P-Stream is a free and open source streaming site, no ads, no tracking, no nonsense.',
+          'pstream-ng is a free and open source streaming site.',
         openGraph: {
           images: [
             {
               url: coverUrl.src,
             },
           ],
-          title: `${pageMeta.title ?? "Watch your favorite shows and movies for free with no ads ever! (っ'ヮ'c)"} | P-Stream`,
+          title: `${pageMeta.title ?? "Watch your favorite shows and movies for free with no ads ever! (っ'ヮ'c)"} | pstream-ng`,
           description:
             pageMeta.description ??
-            'P-Stream is a free and open source streaming site, no ads, no tracking, no nonsense.',
+            'pstream-ng is a free and open source streaming site.',
         },
         twitter: {
           cardType: 'summary_large_image',

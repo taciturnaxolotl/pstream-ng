@@ -44,7 +44,7 @@
       content="black-translucent"
     />
 
-    <!-- P-Stream Preview Embed -->
+    <!-- Preview Embed -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:image" content="/embed-preview.png" />
     <meta property="og:image" content="/embed-preview.png" />
@@ -238,33 +238,17 @@
     <!-- <meta name="referrer" content="no-referrer" /> -->
     <meta name="referrer" content="always" />
 
-    <title>P-Stream</title>
+    <title>pstream-ng</title>
 
     {{#if opensearchEnabled }}
     <!-- OpenSearch -->
     <link
       rel="search"
       type="application/opensearchdescription+xml"
-      title="P-Stream"
+      title="pstream-ng"
       href="/opensearch.xml"
     />
 
-    <!-- Google Sitelinks -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "url": "{{ routeDomain }}",
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": {
-            "@type": "EntryPoint",
-            "urlTemplate": "{{ routeDomain }}/browse/?q={search_term_string}"
-          },
-          "query-input": "required name=search_term_string"
-        }
-      }
-    </script>
     {{/if}}
   </head>
 
