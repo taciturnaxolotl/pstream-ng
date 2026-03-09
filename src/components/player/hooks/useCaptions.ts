@@ -90,35 +90,40 @@ export function useCaptions() {
         srtData: "",
       };
 
-      if (!caption.hls) {
-        const srtData = await downloadCaption(caption);
-        captionToSet.srtData = srtData;
-      } else {
-        // request a language change to hls, so it can load the subtitles
-        await setSubtitlePreference?.(caption.language);
-        const track = getSubtitleTracks?.().find(
-          (t) => t.id.toString() === caption.id && t.details !== undefined,
-        );
-        if (!track) return;
+      try {
+        if (!caption.hls) {
+          const srtData = await downloadCaption(caption);
+          captionToSet.srtData = srtData;
+        } else {
+          // request a language change to hls, so it can load the subtitles
+          await setSubtitlePreference?.(caption.language);
+          const track = getSubtitleTracks?.().find(
+            (t) => t.id.toString() === caption.id && t.details !== undefined,
+          );
+          if (!track) return;
 
-        const fragments =
-          track.details?.fragments?.filter(
-            (frag) => frag !== null && frag.url !== null,
-          ) ?? [];
+          const fragments =
+            track.details?.fragments?.filter(
+              (frag) => frag !== null && frag.url !== null,
+            ) ?? [];
 
-        const vttCaptions = (
-          await Promise.all(
-            fragments.map(async (frag) => {
-              const vtt = await downloadWebVTT(frag.url);
-              return parseVttSubtitles(vtt);
-            }),
-          )
-        ).flat();
+          const vttCaptions = (
+            await Promise.all(
+              fragments.map(async (frag) => {
+                const vtt = await downloadWebVTT(frag.url);
+                return parseVttSubtitles(vtt);
+              }),
+            )
+          ).flat();
 
-        const filtered = filterDuplicateCaptionCues(vttCaptions);
+          const filtered = filterDuplicateCaptionCues(vttCaptions);
 
-        const srtData = subsrt.build(filtered, { format: "srt" });
-        captionToSet.srtData = srtData;
+          const srtData = subsrt.build(filtered, { format: "srt" });
+          captionToSet.srtData = srtData;
+        }
+      } catch (e) {
+        console.error("Failed to load caption:", e);
+        return;
       }
 
       setDirectCaption(captionToSet, caption);

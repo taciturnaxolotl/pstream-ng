@@ -77,7 +77,12 @@ export function parseSubtitles(
 }
 
 function stringToBase64(input: string): string {
-  return btoa(String.fromCodePoint(...new TextEncoder().encode(input)));
+  const bytes = new TextEncoder().encode(input);
+  let binary = "";
+  for (let i = 0; i < bytes.length; i++) {
+    binary += String.fromCharCode(bytes[i]);
+  }
+  return btoa(binary);
 }
 
 export function convertSubtitlesToSrtDataurl(text: string): string {

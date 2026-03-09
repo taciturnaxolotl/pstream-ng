@@ -73,8 +73,16 @@ function VideoElement() {
     (s) => s.enableNativeSubtitles,
   );
   const trackObjectUrl = useObjectUrl(
-    () => (srtData ? convertSubtitlesToObjectUrl(srtData) : null),
-    [srtData],
+    () => {
+      if (!srtData || !enableNativeSubtitles) return null;
+      try {
+        return convertSubtitlesToObjectUrl(srtData);
+      } catch (e) {
+        console.error("Failed to convert subtitles for native track:", e);
+        return null;
+      }
+    },
+    [srtData, enableNativeSubtitles],
   );
 
   // Use native tracks when the setting is enabled

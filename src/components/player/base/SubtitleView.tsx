@@ -123,10 +123,15 @@ export function SubtitleRenderer() {
   const overrideCasing = useSubtitleStore((s) => s.overrideCasing);
   const delay = useSubtitleStore((s) => s.delay);
 
-  const parsedCaptions = useMemo(
-    () => (srtData ? parseSubtitles(srtData, language) : []),
-    [srtData, language],
-  );
+  const parsedCaptions = useMemo(() => {
+    if (!srtData) return [];
+    try {
+      return parseSubtitles(srtData, language);
+    } catch (e) {
+      console.error("Failed to parse subtitles:", e);
+      return [];
+    }
+  }, [srtData, language]);
 
   const visibleCaptions = useMemo(
     () =>
