@@ -18,6 +18,10 @@ pnpm run dev
 
 Then visit [localhost:5173](http://localhost:5173).
 
+## Docs
+
+Original P-Stream documentation is included in the [`docs/`](docs/) directory.
+
 ## Upstream
 
 To pull in updates from the original P-Stream repo:
