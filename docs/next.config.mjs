@@ -1,10 +1,10 @@
-import { guider } from '@neato/guider';
+import { guider } from "@neato/guider";
 
 const withGuider = guider({
-  themeConfig: './theme.config.tsx',
+	themeConfig: "./theme.config.tsx",
 });
 
 export default withGuider({
-  output: 'export',
-  basePath: '/pstream-ng/docs',
+	output: "export",
+	basePath: "/pstream-ng",
 });
